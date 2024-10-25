@@ -1,2 +1,4 @@
-python
-omegaconf
+ninja
+meson-python
+setuptools
+setuptools-scm

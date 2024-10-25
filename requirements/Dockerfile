@@ -1,32 +1,56 @@
-# Arguments to pass to the image
-ARG VERSION_DATE=24.06
-ARG FROM_IMAGE=nvcr.io/nvidia/pytorch
 
-# Import RAPIDS container as the BASE Image (cuda base image)
-FROM ${FROM_IMAGE}:${VERSION_DATE}-py3
-LABEL maintainer="glenn.s.tamkin@nasa.gov" 
+# Use the official Ubuntu 20.04 base image
+FROM ubuntu:22.04
 
-ENV TFC_VERSION=0.1.1
-ENV VHR_CLOUDMASK_VERSION=main
+# Set environment variables for configuration
+ENV PYTHON_VERSION=3.10
 
-# RUN pip install warp-lang
+# Set default values for environment variables
+ENV PYTHONPATH=/usr/local/lib/python${PYTHON_VERSION}/dist-packages
 
-# RUN pip install ipykernel
+# Set maintainer label
+LABEL maintainer="glenn.s.tamkin@nasa.gov"
 
-# RUN pip install nvidia-modulus
- 
-# RUN pip install ipywidgets
+# Update the package lists and install necessary packages
+RUN apt-get update && \
+    apt-get install -y \
+    python${PYTHON_VERSION} \
+    python${PYTHON_VERSION}-dev \
+    python${PYTHON_VERSION}-distutils \
+    python${PYTHON_VERSION}-venv \
+    fftw \
+    numpy \
+    scipy \
+    matplotlib \
+    meson \
+    pkg-config \   
+    ninja \
+    && rm -rf /var/lib/apt/lists/*
 
-# RUN pip install xarray 
-# RUN pip install h5netcdf
-# RUN pip install netCDF4
-# RUN pip install pydap
-# RUN pip install sparrow
-# RUN pip install cartopy
-# RUN pip install torch_harmonics
-# RUN pip install modulus
+# Set the default Python version
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python${PYTHON_VERSION} 1
 
-RUN pip install hydra-core
+# Set the default Python version for pip
+RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip${PYTHON_VERSION} 1
+
+# Verify the Python installation
+RUN python --version && \
+    pip --version
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the requirements file to the working directory
+COPY requirements.txt .
+
+# Install the Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code to the working directory
+COPY . .
+
+# Set the command to run the application
+CMD ["python", "app.py"]
 
 HEALTHCHECK NONE
 ENTRYPOINT [""]
