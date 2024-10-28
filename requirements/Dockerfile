@@ -40,7 +40,7 @@ RUN /usr/bin/pip3 --version
 RUN /usr/bin/pip3 install numpy scipy matplotlib meson ninja meson-python setuptools setuptools-scm
 
 # # Set the working directory
-# WORKDIR /app
+WORKDIR /app
 
 # # Copy the requirements file to the working directory
 # COPY ./requirements.txt .
@@ -49,7 +49,7 @@ RUN /usr/bin/pip3 install numpy scipy matplotlib meson ninja meson-python setupt
 # RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code to the working directory
-#COPY . .
+COPY . .
 
 # # Set the command to run the application
 # CMD ["python", "app.py"]
