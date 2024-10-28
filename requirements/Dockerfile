@@ -37,20 +37,23 @@ RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip${PYTHON_VERSION}
 RUN python --version && \
     pip --version
 
-# Set the working directory
-WORKDIR /app
+# Install the po3 dependencies 
+RUN pip install -U meson-python setuptools setuptools-scm
 
-# Copy the requirements file to the working directory
-COPY ./requirements.txt .
+# # Set the working directory
+# WORKDIR /app
 
-# Install the Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# # Copy the requirements file to the working directory
+# COPY ./requirements.txt .
+
+# # Install the Python dependencies
+# RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code to the working directory
 COPY . .
 
-# Set the command to run the application
-CMD ["python", "app.py"]
+# # Set the command to run the application
+# CMD ["python", "app.py"]
 
 HEALTHCHECK NONE
 ENTRYPOINT [""]
