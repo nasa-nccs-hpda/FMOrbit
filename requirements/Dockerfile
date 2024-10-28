@@ -36,7 +36,7 @@ RUN /usr/bin/python3 --version
 RUN /usr/bin/pip3 --version 
 
 # Install the po3 dependencies 
-RUN pip install fftw numpy scipy matplotlib meson pkg-config ninja meson-python setuptools setuptools-scm
+RUN /usr/bin/pip3 install fftw numpy scipy matplotlib meson pkg-config ninja meson-python setuptools setuptools-scm
 
 # # Set the working directory
 # WORKDIR /app
