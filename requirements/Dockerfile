@@ -25,11 +25,13 @@ RUN apt-get update && \
 
 # # Set the default Python version for pip
 # RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip${PYTHON_VERSION} 1
-RUN ls -alt /usr/bin 
+RUN ls -al /usr/bin/p*
 
 # Verify the Python installation
-RUN python --version && \
-    pip --version
+# RUN /usr/bin/python3 --version && \
+#     pip --version
+RUN /usr/bin/python3 --version 
+RUN /usr/bin/pip3 --version 
 
 # Install the po3 dependencies 
 RUN pip install fftw numpy scipy matplotlib meson pkg-config ninja meson-python setuptools setuptools-scm
