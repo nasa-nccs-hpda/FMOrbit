@@ -20,11 +20,11 @@ RUN apt-get update && \
     python${PYTHON_VERSION}-venv \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the default Python version
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python${PYTHON_VERSION} 1
+# # Set the default Python version
+# RUN update-alternatives --install /usr/bin/python python /usr/bin/python${PYTHON_VERSION} 1
 
-# Set the default Python version for pip
-RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip${PYTHON_VERSION} 1
+# # Set the default Python version for pip
+# RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip${PYTHON_VERSION} 1
 
 # Verify the Python installation
 RUN python --version && \
