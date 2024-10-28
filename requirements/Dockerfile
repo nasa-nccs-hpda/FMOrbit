@@ -31,7 +31,7 @@ RUN ls -al /usr/bin/p*
 # Verify the Python installation
 # RUN /usr/bin/python3 --version && \
 #     pip --version
-RUN pip install --upgrade pip3
+#RUN /usr/bin/pip3 install --upgrade pip3
 RUN /usr/bin/python3 --version 
 RUN /usr/bin/pip3 --version 
 
