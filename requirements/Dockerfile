@@ -49,7 +49,7 @@ RUN /usr/bin/pip3 install numpy scipy matplotlib meson ninja meson-python setupt
 # RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code to the working directory
-COPY . .
+#COPY . .
 
 # # Set the command to run the application
 # CMD ["python", "app.py"]
