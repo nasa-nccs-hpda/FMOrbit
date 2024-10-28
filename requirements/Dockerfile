@@ -18,6 +18,7 @@ RUN apt-get update && \
     python${PYTHON_VERSION}-dev \
     python${PYTHON_VERSION}-distutils \
     python${PYTHON_VERSION}-venv \
+    python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
 # # Set the default Python version
