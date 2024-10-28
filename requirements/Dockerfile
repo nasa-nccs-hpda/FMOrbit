@@ -11,7 +11,7 @@ ENV PYTHONPATH=/usr/local/lib/python${PYTHON_VERSION}/dist-packages
 # Set maintainer label
 LABEL maintainer="glenn.s.tamkin@nasa.gov"
 
-# Update the package lists and install necessary packages
+# Update the package lists and install necessary packages 
 RUN apt-get update && \
     apt-get install -y \
     python${PYTHON_VERSION} \
