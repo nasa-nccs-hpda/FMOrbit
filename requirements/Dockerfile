@@ -25,6 +25,7 @@ RUN apt-get update && \
 
 # # Set the default Python version for pip
 # RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip${PYTHON_VERSION} 1
+RUN ls -alt /usr/bin 
 
 # Verify the Python installation
 RUN python --version && \
