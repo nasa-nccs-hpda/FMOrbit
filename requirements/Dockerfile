@@ -18,13 +18,6 @@ RUN apt-get update && \
     python${PYTHON_VERSION}-dev \
     python${PYTHON_VERSION}-distutils \
     python${PYTHON_VERSION}-venv \
-    fftw \
-    numpy \
-    scipy \
-    matplotlib \
-    meson \
-    pkg-config \   
-    ninja \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the default Python version
@@ -38,7 +31,7 @@ RUN python --version && \
     pip --version
 
 # Install the po3 dependencies 
-RUN pip install -U meson-python setuptools setuptools-scm
+RUN pip install fftw numpy scipy matplotlib meson pkg-config ninja meson-python setuptools setuptools-scm
 
 # # Set the working directory
 # WORKDIR /app
