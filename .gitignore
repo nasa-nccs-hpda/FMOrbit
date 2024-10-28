@@ -9,6 +9,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+pyorbit3/
 build/
 develop-eggs/
 dist/
