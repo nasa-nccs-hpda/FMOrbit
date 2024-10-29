@@ -51,7 +51,8 @@ WORKDIR /app
 # Copy the application code to the working directory
 #RUN cd /app
 #https://github.com/nasa-nccs-hpda/FMOrbit.git
-ADD https://github.com/nasa-nccs-hpda/FMOrbit.git /app
+ADD https://github.com/PyORBIT-Collaboration/PyORBIT3.git /app
+#ADD https://github.com/nasa-nccs-hpda/FMOrbit.git /app
 #RUN ls -al ..
 #ADD ../pyorbit3 pyorbit3/
 #COPY ../pyorbit3/**/* /pyorbit3
