@@ -50,14 +50,16 @@ WORKDIR /app
 
 # Copy the application code to the working directory
 #RUN cd /app
-#COPY ../pyorbit3/**/* /app/pyorbit3
-#COPY . .
-RUN ls -alR / 
-RUN ls -alR /app 
 RUN ls -alR ..
+ADD ../pyorbit3 pyorbit3/
+#COPY ../pyorbit3/**/* /pyorbit3
+#COPY . .
+#RUN ls -alR / 
+RUN ls -alR /app 
+#RUN ls -alR ..
 
 # # Set the command to run the application
 # CMD ["python", "app.py"]
 
 HEALTHCHECK NONE
-ENTRYPOINT [""]
+#ENTRYPOINT [""]
