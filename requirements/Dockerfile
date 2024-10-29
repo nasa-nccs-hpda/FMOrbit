@@ -52,6 +52,7 @@ WORKDIR /app
 RUN cd /app
 COPY ../pyorbit3 .
 COPY . .
+RUN ls -al /app 
 
 # # Set the command to run the application
 # CMD ["python", "app.py"]
