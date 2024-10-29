@@ -49,7 +49,7 @@ WORKDIR /app
 # RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code to the working directory
-COPY .. .
+COPY ../pyorbit3 .
 
 # # Set the command to run the application
 # CMD ["python", "app.py"]
