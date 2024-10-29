@@ -50,7 +50,7 @@ WORKDIR /app
 
 # Copy the application code to the working directory
 #RUN cd /app
-RUN ls -alR ..
+RUN ls -al ..
 ADD ../pyorbit3 pyorbit3/
 #COPY ../pyorbit3/**/* /pyorbit3
 #COPY . .
